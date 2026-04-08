@@ -19,6 +19,39 @@ chmod +x split_kafkio.sh
 ./split_kafkio.sh
 ```
 
+## Push split parts to this repo
+
+There is also a generic helper that:
+
+- downloads any file from a URL
+- splits it into parts of up to 20 MB
+- renames each part to `.png`
+- commits and pushes the parts into this git repo
+
+```bash
+chmod +x download_split_and_push.sh
+./download_split_and_push.sh "https://example.com/file.zip"
+```
+
+Custom usage:
+
+```bash
+./download_split_and_push.sh \
+  "https://example.com/file.zip" \
+  . \
+  20 \
+  main \
+  origin
+```
+
+Arguments:
+
+1. download URL
+2. repo directory
+3. chunk size in MB
+4. branch
+5. remote name
+
 Custom usage:
 
 ```bash
